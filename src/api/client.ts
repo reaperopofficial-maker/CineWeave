@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-// Force base URL to local proxy path
-const baseURL = '/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 const apiClient = axios.create({
-  baseURL,
+  baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
