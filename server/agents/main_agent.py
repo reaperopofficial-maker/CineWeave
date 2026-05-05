@@ -11,7 +11,7 @@ class MainAgent:
         self.model = "claude-sonnet-4-5"
         self.max_retries = 3
         
-        self.system_prompt = """Tum VideoForge ka AI assistant ho.
+        self.system_prompt = """Tum CineWeave ka AI assistant ho.
 User ki novel se video banane mein help karo.
 Hinglish mein baat karo - friendly aur helpful raho.
 Har step complete hone pe user ko batao.

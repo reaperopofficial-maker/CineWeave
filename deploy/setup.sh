@@ -4,7 +4,7 @@
 set -e
 
 echo "=================================================="
-echo "  VideoForge - Hostinger VPS Setup Script"
+echo "  CineWeave - Hostinger VPS Setup Script"
 echo "  OS: Ubuntu 22.04"
 echo "=================================================="
 
@@ -38,13 +38,13 @@ echo "[6/9] Installing Git..."
 apt install -y git
 
 # 7. Create project directory and set permissions
-echo "[7/9] Creating project folder (/var/www/videoforge)..."
-mkdir -p /var/www/videoforge
-chown -R $USER:$USER /var/www/videoforge
+echo "[7/9] Creating project folder (/var/www/cineweave)..."
+mkdir -p /var/www/cineweave
+chown -R $USER:$USER /var/www/cineweave
 
 # 8. Create Python virtual environment
 echo "[8/9] Creating Python virtual environment..."
-cd /var/www/videoforge
+cd /var/www/cineweave
 if [ ! -d "venv" ]; then
     python3.12 -m venv venv
     echo "Virtual environment created."
@@ -58,14 +58,14 @@ apt install -y supervisor
 
 # Create log directories
 echo "[+] Creating log directories..."
-mkdir -p /var/log/videoforge
-chown -R $USER:www-data /var/log/videoforge
-chmod -R 775 /var/log/videoforge
+mkdir -p /var/log/cineweave
+chown -R $USER:www-data /var/log/cineweave
+chmod -R 775 /var/log/cineweave
 
 echo "=================================================="
 echo "  Setup Complete!"
 echo "  Next steps:"
-echo "  1. Clone your project: git clone <repo> /var/www/videoforge"
+echo "  1. Clone your project: git clone <repo> /var/www/cineweave"
 echo "  2. Configure .env file"
 echo "  3. Run deploy.sh"
 echo "=================================================="

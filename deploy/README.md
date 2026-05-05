@@ -1,6 +1,6 @@
-# VideoForge Deployment Guide - Hostinger VPS (No Docker)
+# CineWeave Deployment Guide - Hostinger VPS (No Docker)
 
-This guide provides step-by-step instructions to deploy VideoForge onto an Ubuntu 22.04 VPS (e.g., Hostinger) using Nginx, Supervisor, Python 3.12, and Node.js 20.
+This guide provides step-by-step instructions to deploy CineWeave onto an Ubuntu 22.04 VPS (e.g., Hostinger) using Nginx, Supervisor, Python 3.12, and Node.js 20.
 
 ## 1. Connect to your VPS via SSH
 Open your terminal and connect to the VPS as root:
@@ -12,10 +12,10 @@ ssh root@<YOUR_VPS_IP>
 Get your code onto the VPS:
 ```bash
 # Clone directly if using git
-git clone https://github.com/yourusername/videoforge.git /var/www/videoforge
+git clone https://github.com/yourusername/cineweave.git /var/www/cineweave
 
 # Navigate to the project directory
-cd /var/www/videoforge
+cd /var/www/cineweave
 
 # Make deployment scripts executable
 chmod +x deploy/setup.sh
@@ -36,8 +36,8 @@ Add your Anthropic API Key, Gemini API key, and configure your domain.
 ## 4. Setup Nginx Configuration
 Symlink the Nginx configuration to standard directories and enable it:
 ```bash
-cp deploy/nginx.conf /etc/nginx/sites-available/videoforge
-ln -s /etc/nginx/sites-available/videoforge /etc/nginx/sites-enabled/
+cp deploy/nginx.conf /etc/nginx/sites-available/cineweave
+ln -s /etc/nginx/sites-available/cineweave /etc/nginx/sites-enabled/
 
 # Remove default nginx site
 rm -f /etc/nginx/sites-enabled/default
@@ -52,12 +52,12 @@ systemctl restart nginx
 ## 5. Setup Supervisor Configuration
 Link the Supervisor configuration for managing the FastAPI backend:
 ```bash
-cp deploy/supervisor.conf /etc/supervisor/conf.d/videoforge.conf
+cp deploy/supervisor.conf /etc/supervisor/conf.d/cineweave.conf
 
 # Reload Supervisor configuration
 supervisorctl reread
 supervisorctl update
-supervisorctl status videoforge-api
+supervisorctl status cineweave-api
 ```
 
 ## 6. Setup SSL via Certbot (HTTPS)

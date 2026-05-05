@@ -4,10 +4,10 @@
 set -e
 
 echo "=================================================="
-echo "  Deploying VideoForge"
+echo "  Deploying CineWeave"
 echo "=================================================="
 
-PROJECT_DIR="/var/www/videoforge"
+PROJECT_DIR="/var/www/cineweave"
 
 cd $PROJECT_DIR
 
@@ -35,8 +35,8 @@ fi
 
 # 5. Restart Supervisor (FastAPI Backend)
 echo "[5/7] Restarting backend (Supervisor)..."
-supervisorctl stop videoforge-api || true
-supervisorctl start videoforge-api
+supervisorctl stop cineweave-api || true
+supervisorctl start cineweave-api
 
 # 6. Reload Nginx
 echo "[6/7] Reloading Nginx..."

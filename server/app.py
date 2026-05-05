@@ -18,7 +18,7 @@ async def lifespan(app: FastAPI):
     await init_db()
     yield
 
-app = FastAPI(title="VideoForge", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="CineWeave", version="0.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
